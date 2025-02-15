@@ -1,0 +1,25 @@
+full-height{
+    height: 100vh;
+}
+
+.image{
+    height: 300px;
+    width: auto;   
+}
+
+.elemento1{
+
+    margin-top: 50px;
+}
+
+.elemento2{
+
+    margin-top: 30px;
+}
+
+.elemento3{
+
+    margin-top: 10px;
+}
+
+
