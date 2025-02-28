@@ -16,6 +16,7 @@ export class NavbarComponent {
     const savedLang = localStorage.getItem('lang') || 'en';
     this.translate.setDefaultLang(savedLang);
     this.translate.use(savedLang);
+    this.currentLanguage = this.getLanguageName(savedLang);
   }
 
   changeLanguage(lang: string) {
