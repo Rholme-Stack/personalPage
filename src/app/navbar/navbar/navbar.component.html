@@ -1,16 +1,33 @@
 <!-- Sidebar -->
 <div id="mySidebar" class="sidebar">
   <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">×</a>
-  <a href="#">About</a>
-  <a href="#">Services</a>
-  <a href="#">Clients</a>
-  <a href="#">Contact</a>
+  <a href="#">{{'HOME' | translate }}</a>
+  <a href="#">{{'ABOUT' | translate }}</a>  
+  <a href="#">{{'CONTACT' | translate }}</a>
 </div>
 
+ 
+
+
+
 <!-- Navbar -->
-<nav class="navbar bg-body-black">
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-body-black">
   <div class="container-fluid">
     <h2>holme<span style="color: blueviolet;">9</span></h2>
+
+    <!-- Dropdown de Idioma -->
+    <div class="dropdown">
+      <button class="btn btn-sm btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        🌍{{currentLanguage}}
+      </button>
+      <ul class="dropdown-menu dropdown-menu-black">
+        <li><a class="dropdown-item" (click)="changeLanguage('en')">🇬🇧 English</a></li>
+        <li><a class="dropdown-item" (click)="changeLanguage('es')">🇪🇸 Español</a></li>
+        <li><a class="dropdown-item" (click)="changeLanguage('pt')">🇧🇷 Português</a></li>
+      </ul>
+    </div>
+
     <a class="navbar-brand openbtn" (click)="openNav()">☰ Menu</a>
   </div>
 </nav>
