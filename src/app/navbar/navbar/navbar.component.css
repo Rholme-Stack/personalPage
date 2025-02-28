@@ -29,7 +29,7 @@ body {
   text-decoration: none;
   font-size: 25px;
   
-  color: #818181;
+  color: white;   /*  818181 */
   display: block;
   transition: 0.3s;
 }
@@ -50,13 +50,21 @@ body {
 .openbtn {
   font-size: 20px;
   cursor: pointer;
-  
+  color: white;
   padding: 10px 15px;
   border: none;
 }
 
 .openbtn:hover {
   background-color: #444;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  color: white;
 }
 
 
