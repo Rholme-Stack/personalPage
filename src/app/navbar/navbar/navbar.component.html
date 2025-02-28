@@ -18,10 +18,10 @@
 
     <!-- Dropdown de Idioma -->
     <div class="dropdown">
-      <button class="btn btn-sm btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <button class="btn btn-sm btn-black text-white-50 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
         🌍{{currentLanguage}}
       </button>
-      <ul class="dropdown-menu dropdown-menu-black">
+      <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton1">
         <li><a class="dropdown-item" (click)="changeLanguage('en')">🇬🇧 English</a></li>
         <li><a class="dropdown-item" (click)="changeLanguage('es')">🇪🇸 Español</a></li>
         <li><a class="dropdown-item" (click)="changeLanguage('pt')">🇧🇷 Português</a></li>
