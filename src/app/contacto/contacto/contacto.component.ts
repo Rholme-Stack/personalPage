@@ -1,19 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Firestore, collection, addDoc } from '@angular/fire/firestore';
 import { TranslateModule } from '@ngx-translate/core';
+import { MessageComponent } from '../../modal/message/message.component';
+
 
 @Component({
   selector: 'app-contacto',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, TranslateModule],
+  imports: [CommonModule, ReactiveFormsModule, TranslateModule, MessageComponent],
   templateUrl: './contacto.component.html',
   styleUrl: './contacto.component.css'
 })
 export class ContactoComponent {
 
   contactForm: FormGroup;
+
+  @ViewChild('modalConfirmacion') modalConfirmacion!: MessageComponent;
 
   constructor(private fb: FormBuilder, private firestore: Firestore) {
     this.contactForm = this.fb.group({
@@ -32,7 +36,10 @@ export class ContactoComponent {
         ...this.contactForm.value,  // Datos del formulario
         timestamp: new Date()       // Agregar fecha y hora actual
       });
-      alert('Mensaje enviado con éxito');
+      
+      //modal 
+      this.modalConfirmacion.abrirModal();
+
       this.contactForm.reset();
     } catch (error) {
       console.error('Error al enviar mensaje: ', error);
