@@ -1,20 +1,18 @@
 <!-- Sidebar -->
 <div id="mySidebar" class="sidebar">
   <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">×</a>
-  <a href="#">{{'HOME' | translate }}</a>
-  <a href="#">{{'ABOUT' | translate }}</a>  
-  <a href="#">{{'CONTACT' | translate }}</a>
+  <a [routerLink]="'/home'" (click)="closeNav()">{{ 'HOME' | translate }}</a>
+  <a [routerLink]="'/about'" (click)="closeNav()">{{ 'ABOUT' | translate }}</a>
+  <a [routerLink]="'/contact'" (click)="closeNav()">{{ 'CONTACT' | translate }}</a>
+  <a [routerLink]="'/games'" (click)="closeNav()">TimTim Games</a>
 </div>
-
- 
-
 
 
 <!-- Navbar -->
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg bg-body-black">
   <div class="container-fluid">
-    <h2>holme<span style="color: blueviolet;">9</span></h2>
+    <h2 routerLink="/home">holme<span>9</span></h2>
 
     <!-- Dropdown de Idioma -->
     <div class="dropdown">

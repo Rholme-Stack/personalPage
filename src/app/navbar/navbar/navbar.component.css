@@ -66,6 +66,15 @@ body {
   color: white;
 }
 
+a{
+  cursor: pointer;  
+  
+}
+
+span {
+color: greenyellow;
+font-size: larger;
+}
 
 
 /* Responsive */
