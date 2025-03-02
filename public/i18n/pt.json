@@ -4,6 +4,14 @@
     "CONTACT": "Contato",
     "LANGUAGE": "Idioma",
     "CONSTRUCTION": "Web em Construção",
-    "NOT_FOUND": "Página web não encotrada!"
+    "NOT_FOUND": "Página web não encotrada!",
+    "CONTACT_FORM": "Formulário de Contato",
+    "NAME": "Nome",
+    "EMAIL": "E-mail",
+    "MESSAGE": "Mensagem",
+    "SUBMIT": "Enviar",
+    "REQUIRED_NAME": "Nome é obrigatório (máximo 50 caracteres).",
+    "REQUIRED_EMAIL": "E-mail inválido.",
+    "REQUIRED_MESSAGE": "A mensagem deve ter entre 10 e 400 caracteres."
 }
   

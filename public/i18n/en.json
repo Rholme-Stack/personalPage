@@ -5,7 +5,15 @@
     "CONTACT": "Contact",
     "LANGUAGE": "Language",
     "CONSTRUCTION": "Web Under Construction",
-    "NOT_FOUND": "Web page not found!"
+    "NOT_FOUND": "Web page not found!",
+    "CONTACT_FORM": "Contact Form",
+    "NAME": "Name",
+    "EMAIL": "Email",
+    "MESSAGE": "Message",
+    "SUBMIT": "Send",
+    "REQUIRED_NAME": "Name is required (maximum 50 characters).",
+    "REQUIRED_EMAIL": "Invalid email.",
+    "REQUIRED_MESSAGE": "A mensagem deve ter entre 10 e 400 caracteres."
     
     
 }

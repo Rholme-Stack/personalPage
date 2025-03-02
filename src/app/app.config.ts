@@ -3,9 +3,13 @@ import { provideRouter } from '@angular/router';
 import { HttpClientModule, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-
-import { routes } from './app.routes';
 import { HttpClient } from '@angular/common/http';
+
+// Firebase
+import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { firebaseConfig } from './firebase.config';
+import { routes } from './app.routes';
 
 // Función para cargar traducciones desde `public/i18n/`
 export function HttpLoaderFactory(http: HttpClient) {
@@ -16,15 +20,18 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-    provideHttpClient(withInterceptorsFromDi()), // ✅ Esto soluciona el error de HttpClient
+    provideHttpClient(withInterceptorsFromDi()),
     importProvidersFrom(
       TranslateModule.forRoot({
         loader: {
           provide: TranslateLoader,
           useFactory: HttpLoaderFactory,
-          deps: [HttpClient], // ✅ Asegurar que HttpClient está como dependencia
+          deps: [HttpClient],
         },
       })
     ),
+    // Agregar Firebase aquí
+    provideFirebaseApp(() => initializeApp(firebaseConfig)),
+    provideFirestore(() => getFirestore()),
   ],
 };
