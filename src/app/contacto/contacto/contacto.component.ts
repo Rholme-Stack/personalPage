@@ -23,15 +23,15 @@ export class ContactoComponent {
     });
   }
 
-  async submitForm() {
-    if (this.contactForm.invalid) {
-      this.contactForm.markAllAsTouched(); // 🔥 Marca todos los campos como "tocados"
-      return;
-    }
-  
+  async submitForm() { 
+    if (this.contactForm.invalid) return; // Evitar envío si el formulario es inválido
+    
     try {
       const messagesRef = collection(this.firestore, 'messages'); // Referencia a la colección de Firestore
-      await addDoc(messagesRef, this.contactForm.value); // Agregar documento
+      await addDoc(messagesRef, {
+        ...this.contactForm.value,  // Datos del formulario
+        timestamp: new Date()       // Agregar fecha y hora actual
+      });
       alert('Mensaje enviado con éxito');
       this.contactForm.reset();
     } catch (error) {
