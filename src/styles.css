@@ -1,13 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+    --color-primary: #49dc00;
+    --color-secondary: #02cd57;
+    --color-accent: #00b7db;
+    --color-neutral: #0215e8;
+    --color-base: #9b00e7;
+    --color-white: aliceblue;
+    --color-black: black;
+    --color-gray: #818181;
+    --color-red: #ff0000;
+}
+
 body{
     background-color: black;
     font-family: "Lato", sans-serif;
-
-
 }
 
 h1{
-color: aliceblue;
-
+    color: aliceblue;
 }
 

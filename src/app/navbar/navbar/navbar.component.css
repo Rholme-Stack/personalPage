@@ -11,7 +11,7 @@ body {
   z-index: 1000;
   top: 0;
   left: 0;
-  background-color: #111;
+  background-color: var(--color-black);
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
@@ -29,13 +29,13 @@ body {
   text-decoration: none;
   font-size: 25px;
   
-  color: white;   /*  818181 */
+  color: var(--color-white);
   display: block;
   transition: 0.3s;
 }
 
 .sidebar a:hover {
-  color: #f1f1f1;
+  color: var(--color-white);
 }
 
 .sidebar .closebtn {
@@ -50,20 +50,20 @@ body {
 .openbtn {
   font-size: 20px;
   cursor: pointer;
-  color: white;
+  color: var(--color-white);
   padding: 10px 15px;
   border: none;
 }
 
 .openbtn:hover {
-  background-color: #444;
+  background-color: var(--color-gray)
 }
 
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;  
-  color: white;
+  color: var(--color-white);
 }
 
 a{
@@ -72,7 +72,7 @@ a{
 }
 
 span {
-color: greenyellow;
+color: var(--color-primary);
 font-size: larger;
 }
 

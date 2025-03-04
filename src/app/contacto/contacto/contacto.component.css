@@ -1,5 +1,5 @@
 .container{
-    color: aliceblue;
+    color: var(--color-white);
 }
 
 .btn-custom {
@@ -10,21 +10,21 @@
 
 /* Estilo cuando el botón está deshabilitado */
 .btn-disabled {
-    background-color: gray !important;
-    color: white !important;
+    background-color: var(--color-gray) !important;
+    color: var(--color-white) !important;
     cursor: not-allowed;
     opacity: 0.6;
 }
 
 /* Estilo cuando el botón está habilitado */
 .btn-active {
-    background-color: greenyellow !important;
-    color: black !important;
+    background-color: var(--color-primary)  !important;
+    color: var(--color-black) !important;
 }
 
 .btn-active:hover {
-    background-color: limegreen !important;
-    color: white !important;
+    background-color: var(--color-secondary) !important;
+    color: var(--color-white) !important;
 }
 
 full-height{
