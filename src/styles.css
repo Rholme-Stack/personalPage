@@ -5,6 +5,7 @@
     --color-accent: #00b7db;
     --color-neutral: #0215e8;
     --color-base: #9b00e7;
+    --color-base-transparent: rgba(155, 0, 231, 0.7) /* 80% de opacidad */;
     --color-white: aliceblue;
     --color-black: black;
     --color-gray: #818181;

@@ -1,0 +1,11 @@
+.modal-content{
+    background-color: var(--color-base-transparent);
+    border-color: var(--color-base);
+    border: 5px solid var(--color-base) !important;
+    color: var(--color-white);
+}
+
+.btn{
+    background-color: var(--color-accent);
+    color: var(--color-white);
+}
