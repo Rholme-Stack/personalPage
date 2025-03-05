@@ -13,7 +13,9 @@
     "SUBMIT": "Send",
     "REQUIRED_NAME": "Name is required (maximum 50 characters).",
     "REQUIRED_EMAIL": "Invalid email.",
-    "REQUIRED_MESSAGE": "A mensagem deve ter entre 10 e 400 caracteres."
+    "REQUIRED_MESSAGE": "A mensagem deve ter entre 10 e 400 caracteres.",
+    "MODAL_INFO_TITLE": "Successful Registration",
+    "MODAL_INFO_MESSAGE": "The contact has been saved successfully."
     
     
 }

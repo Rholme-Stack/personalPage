@@ -1,0 +1,16 @@
+<h1>Lista de contactos</h1>
+
+<div class="container">
+    <div *ngFor="let message of messages$ | async" class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ message.name }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ message.email }}</h6>
+        <p class="card-text">{{ message.message }}</p>
+        <p class="text-muted">Fecha: {{ message.timestamp | date:'short' }}</p>
+        <p class="badge bg-success" *ngIf="message.status === 'leído'">Leído</p>
+        <button (click)="deleteMessage(message.id)" class="btn btn-danger">Eliminar</button>
+        <button (click)="markAsRead(message.id)" class="btn btn-primary" *ngIf="message.status !== 'leído'">Marcar como leído</button>
+      </div>
+    </div>
+  </div>
+  

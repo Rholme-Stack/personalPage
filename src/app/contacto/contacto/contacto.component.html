@@ -43,8 +43,8 @@
 <!-- Modal Reutilizable -->
 <app-message
   #modalConfirmacion
-  titulo="Registro Exitoso"
-  mensaje="El contacto se ha guardado correctamente."
+  [titulo]="'MODAL_INFO_TITLE' | translate"
+  [mensaje]="'MODAL_INFO_MESSAGE' | translate"
   modalId="modalContacto">
 </app-message>
 

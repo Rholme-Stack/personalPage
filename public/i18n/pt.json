@@ -12,6 +12,8 @@
     "SUBMIT": "Enviar",
     "REQUIRED_NAME": "Nome é obrigatório (máximo 50 caracteres).",
     "REQUIRED_EMAIL": "E-mail inválido.",
-    "REQUIRED_MESSAGE": "A mensagem deve ter entre 10 e 400 caracteres."
+    "REQUIRED_MESSAGE": "A mensagem deve ter entre 10 e 400 caracteres.",
+    "MODAL_INFO_TITLE": "Registro Bem-Sucedido",
+    "MODAL_INFO_MESSAGE": "O contato foi salvo com sucesso."
 }
   
