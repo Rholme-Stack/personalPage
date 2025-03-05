@@ -1,18 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Firestore } from 'firebase/firestore';
-import { collectionData } from '@angular/fire/firestore';
-import { collection } from 'firebase/firestore/lite';
+import { Message, MessageService } from '../../services/message.service';
 
-interface Message {
-  id: string;
-  name: string;
-  email: string;
-  message: string;
-  timestamp: string;
-  status?: string;
-}
+
 
 @Component({
   selector: 'app-contacto-list',
@@ -21,28 +11,28 @@ interface Message {
   templateUrl: './contacto-list.component.html',
   styleUrls: ['./contacto-list.component.css']
 })
-export class ContactoListComponent {
+export class ContactoListComponent implements OnInit {
 
-  messages$!: Observable<Message[]>;
+  
+  messages!: Message[];
 
-  constructor(private firestore: Firestore) {}
+  constructor(private messageService:MessageService) {}
 
- 
+  async ngOnInit(){
+    (await this.messageService.getMessages()).subscribe((data) => {
+      console.log(data);
+      this.messages = data;
+    });
+  }
     
   
-
-  getMessages(): Observable<Message[]> {
-    throw new Error('Method not implemented.');
-
-
+  updateStatus(arg0: string) {
+    this.messageService.updateMessageStatus(arg0, 'read');
   }
 
-  markAsRead(arg0: string) {
-    throw new Error('Method not implemented.');
-    }
-    deleteMessage(arg0: string) {
-    throw new Error('Method not implemented.');
-    }
+  deleteMessage(arg0: string) {
+   this.messageService.deleteMessage(arg0);
+  }
 
   
 }

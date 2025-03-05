@@ -1,10 +1,11 @@
 import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { CommonModule, formatCurrency } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { MessageComponent } from '../../modal/message/message.component';
 import { MessageService } from '../../services/message.service'; // Asegúrate de importar el servicio correcto
 import { Timestamp } from '@angular/fire/firestore';
+
 
 @Component({
   selector: 'app-contacto',
@@ -28,6 +29,7 @@ export class ContactoComponent {
 
   async submitForm() { 
     if (this.contactForm.valid) {
+      const now = Timestamp.now(); // Fecha actual en formato Firestore Timestamp
       const formData = this.contactForm.value;
 
       const message = {
@@ -35,7 +37,7 @@ export class ContactoComponent {
         email: formData.email,
         message: formData.message,
         status: 'new',
-        fecha: Timestamp.now()
+        timestamp: now
       };
 
       try {

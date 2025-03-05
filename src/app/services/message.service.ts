@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Firestore, collection, addDoc, collectionData, doc, deleteDoc, updateDoc, Timestamp } from '@angular/fire/firestore';
+import { Firestore, collection, addDoc, collectionData, doc, deleteDoc, updateDoc, Timestamp, query, orderBy, getDocs } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
 export interface Message {
@@ -8,7 +8,7 @@ export interface Message {
   email: string;
   message: string;
   status: string;
-  fecha: Timestamp;
+  timestamp: Timestamp;
 }
 
 @Injectable({
@@ -16,21 +16,38 @@ export interface Message {
 })
 export class MessageService {
 
-   private messagesCollection;
+
   
-    constructor(private firestore: Firestore) {
-      this.messagesCollection = collection(this.firestore, 'message');
-    }
+    constructor(private firestore: Firestore) {   }
   
     // Insertar un nuevo mensaje
     addMessage(message: Message) {
-      return addDoc(this.messagesCollection, message);
+
+      const messagesCollection = collection(this.firestore, 'message');
+      return addDoc(messagesCollection, message);
     }
   
     // Listar todos los mensajes
-    getMessages(): Observable<Message[]> {
-      return collectionData(this.messagesCollection, { idField: 'id' }) as Observable<Message[]>;
-    }
+async getMessages(): Promise<Observable<Message[]>> {
+  const messagesCollection = collection(this.firestore, 'message');
+  return new Promise((resolve, reject) => {
+    getDocs(query(messagesCollection, orderBy('timestamp', 'desc')))
+      .then((querySnapshot) => {
+        const messages: Message[] = [];
+        querySnapshot.forEach((doc) => {
+          messages.push({
+            id: doc.id,
+            ...doc.data()
+          } as Message);
+        });
+        resolve(new Observable((observer) => {
+          observer.next(messages);
+          observer.complete();
+        }));
+      })
+      .catch((error) => reject(error));
+  });
+}
   
     // Eliminar un mensaje por ID
     deleteMessage(id: string) {

@@ -1,16 +1,29 @@
-<h1>Lista de contactos</h1>
+<h1>Lista de mensajes</h1>
 
-<div class="container">
-    <div *ngFor="let message of messages$ | async" class="card">
-      <div class="card-body">
-        <h5 class="card-title">{{ message.name }}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">{{ message.email }}</h6>
-        <p class="card-text">{{ message.message }}</p>
-        <p class="text-muted">Fecha: {{ message.timestamp | date:'short' }}</p>
-        <p class="badge bg-success" *ngIf="message.status === 'leído'">Leído</p>
-        <button (click)="deleteMessage(message.id)" class="btn btn-danger">Eliminar</button>
-        <button (click)="markAsRead(message.id)" class="btn btn-primary" *ngIf="message.status !== 'leído'">Marcar como leído</button>
-      </div>
-    </div>
-  </div>
-  
+<div class="container">  
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Status</th>
+        <th>Date</th>
+        <th>Message</th>
+        <th>Opciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let message of messages" >
+        <td>{{ message.name }}</td>
+        <td>{{ message.email }}</td>
+        <td [ngClass]="message.status === 'new' ? 'bg-green' : 'bg-red'">{{ message.status }}</td>
+        <td>{{ message.timestamp.toMillis() | date:'dd/MM/yyyy h:mm:ss a'}}</td>
+        <td>{{ message.message }}</td>        
+        <td>
+          <button class="btn btn-danger" (click)="deleteMessage(message.id!)">Eliminar</button>
+          <button class="btn btn-success" (click)="updateStatus(message.id!)">Completar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
