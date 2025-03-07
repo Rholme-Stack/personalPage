@@ -1,15 +1,27 @@
 <h1 class="text-center mb-4">Lista de mensajes</h1>
 
 <div class="container">
+  <!-- Spinner de carga, se mostrará cuando isLoading sea true -->
+  <div *ngIf="isLoading" class="d-flex justify-content-center mt-5">
+    <div class="spinner-border text-white" style="width: 3rem; height: 3rem;" role="status">
+      <span class="visually-hidden">Cargando...</span>
+    </div>
+  </div>
+
   <div class="row">
-    <div class="col-md-6 col-lg-4 mb-3" *ngFor="let message of messages">
-      <div class="card shadow-sm">
+    <div class="col-md-6 col-lg-4 mb-3" *ngFor="let message of messages; let i = index">
+      <div 
+        class="card shadow-sm"
+        (touchstart)="onTouchStart($event, i)"
+        (touchend)="onTouchEnd($event, i)"
+        [class.swiped]="swipeStatus[i]"
+      >
         <div class="card-body">
           <h5 class="card-title">{{ message.name }}</h5>
           <h6 class="card-subtitle text-muted">{{ message.email }}</h6>
           <p class="card-text">
-            <strong>Estado:</strong> 
-            <span [ngClass]="message.status === 'new' ? 'text-success' : 'text-danger'">
+            <strong>Estado:</strong>
+            <span [class.text-success]="message.status === 'new'" [class.text-danger]="message.status !== 'new'">
               {{ message.status }}
             </span>
           </p>
@@ -18,7 +30,7 @@
           
           <!-- Botones de acción -->
           <div class="d-flex justify-content-end">
-            <button class="btn btn-danger btn-sm me-2" (click)="deleteMessage(message.id!)">
+            <button class="btn btn-danger btn-sm me-2" (click)="deleteMessage(message.id!, i)">
               <i class="fas fa-trash-alt"></i>
             </button>
             <button class="btn btn-success btn-sm" (click)="updateStatus(message.id!)">

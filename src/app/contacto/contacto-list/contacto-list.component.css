@@ -1,19 +1,27 @@
-/* Fondo verde pastel para 'new' */
-.bg-green {
-  background-color: #b7f8c6; /* Verde pastel */
+.card {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  overflow: hidden;
 }
 
-/* Fondo rojo pastel para otros estados */
-.bg-red {
-  background-color: #f57681; /* Rojo pastel */
+.card.swiped {
+  transform: translateX(-100%); /* Desliza la tarjeta completamente fuera de la pantalla */
+  opacity: 0; /* Desaparece la tarjeta */
 }
 
-.btn{
-  margin-bottom: 5px;
+.card-body {
+  transition: opacity 0.3s ease;
 }
 
-.container{
-  font-size: x-small;
+.card-body.swiped {
+  opacity: 0; /* Desaparece el contenido de la tarjeta */
 }
 
-  
+/* CSS personalizado para centrar el spinner */
+.spinner-container {
+  position: fixed;   /* Se fija en la pantalla */
+  top: 50%;           /* A la mitad de la altura */
+  left: 50%;          /* A la mitad de la anchura */
+  transform: translate(-50%, -50%); /* Centra el spinner en el medio de la pantalla */
+  z-index: 1050;      /* Para asegurarse de que está por encima de otros elementos */
+  margin-bottom: 20px;;
+}
