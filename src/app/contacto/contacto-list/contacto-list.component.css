@@ -8,6 +8,10 @@
   background-color: #f57681; /* Rojo pastel */
 }
 
+.btn{
+  margin-bottom: 5px;
+}
+
 .container{
   font-size: x-small;
 }

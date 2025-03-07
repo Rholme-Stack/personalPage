@@ -1,29 +1,32 @@
-<h1>Lista de mensajes</h1>
+<h1 class="text-center mb-4">Lista de mensajes</h1>
 
-<div class="container">  
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Status</th>
-        <th>Date</th>
-        <th>Message</th>
-        <th>Opciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let message of messages" >
-        <td>{{ message.name }}</td>
-        <td>{{ message.email }}</td>
-        <td [ngClass]="message.status === 'new' ? 'bg-green' : 'bg-red'">{{ message.status }}</td>
-        <td>{{ message.timestamp.toMillis() | date:'dd/MM/yyyy h:mm:ss a'}}</td>
-        <td>{{ message.message }}</td>        
-        <td>
-          <button class="btn btn-danger" (click)="deleteMessage(message.id!)">Eliminar</button>
-          <button class="btn btn-success" (click)="updateStatus(message.id!)">Completar</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-lg-4 mb-3" *ngFor="let message of messages">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">{{ message.name }}</h5>
+          <h6 class="card-subtitle text-muted">{{ message.email }}</h6>
+          <p class="card-text">
+            <strong>Estado:</strong> 
+            <span [ngClass]="message.status === 'new' ? 'text-success' : 'text-danger'">
+              {{ message.status }}
+            </span>
+          </p>
+          <p class="card-text"><strong>Fecha:</strong> {{ message.timestamp.toMillis() | date:'dd/MM/yyyy h:mm:ss a' }}</p>
+          <p class="card-text"><strong>Mensaje:</strong> {{ message.message }}</p>
+          
+          <!-- Botones de acción -->
+          <div class="d-flex justify-content-end">
+            <button class="btn btn-danger btn-sm me-2" (click)="deleteMessage(message.id!)">
+              <i class="fas fa-trash-alt"></i>
+            </button>
+            <button class="btn btn-success btn-sm" (click)="updateStatus(message.id!)">
+              <i class="fas fa-check-circle"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
