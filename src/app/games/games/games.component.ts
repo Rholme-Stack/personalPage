@@ -10,4 +10,7 @@ import { TranslateModule } from '@ngx-translate/core';
 })
 export class GamesComponent {
 //insertar games
+//test
+
+  
 }
