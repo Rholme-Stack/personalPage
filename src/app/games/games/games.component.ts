@@ -9,5 +9,5 @@ import { TranslateModule } from '@ngx-translate/core';
   styleUrl: './games.component.css'
 })
 export class GamesComponent {
-
+//insertar games
 }
