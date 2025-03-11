@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { UnderConstructionComponent } from "../../under-construction/under-construction.component";
 
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [TranslateModule],
+  imports: [TranslateModule, UnderConstructionComponent],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css'
 })

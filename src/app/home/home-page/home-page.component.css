@@ -1,25 +1,24 @@
-full-height{
-    height: 100vh;
-}
-
-.image{
-    height: 300px;
-    width: auto;   
-}
-
-.elemento1{
-
-    margin-top: 50px;
-}
-
-.elemento2{
-
+img{
     margin-top: 30px;
 }
-
-.elemento3{
-
-    margin-top: 10px;
+.container-fluid {
+    position: relative;
+    padding: 0;
+    margin: 0;
 }
 
+.diagonal-image {
+    display: block;
+    width: 100%; /* Ocupar todo el ancho */
+    max-width: 1200px; /* Tamaño máximo */
+    margin: 50px auto; /* Centrar */
+    position: relative;
+    box-shadow: 
+        -30px -30px 0 5px var(--color-primary),   /* Línea superior izquierda */
+        30px 30px 0 5px var(--color-base);    /* Línea inferior derecha */
+}
 
+/* Asegurar que la imagen no se recorte */
+body {
+    overflow-x: hidden;
+}
