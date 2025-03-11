@@ -25,3 +25,17 @@
   z-index: 1050;      /* Para asegurarse de que está por encima de otros elementos */
   margin-bottom: 20px;;
 }
+
+h3 {
+  margin-top: 20px;
+  margin-left: 40px;
+  color: var(--color-primary);
+}
+
+.status-new {
+  border: 5px solid rgb(6, 223, 6); /* Borde verde para estado 'new' */
+}
+
+.status-other {
+  border: 5px solid red; /* Borde rojo para otros estados */
+}

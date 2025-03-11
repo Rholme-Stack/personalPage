@@ -43,6 +43,13 @@ export class ContactoListComponent implements OnInit {
 
   updateStatus(id: string) {
     this.messageService.updateMessageStatus(id, 'read');
+
+    // Cargar nuevamente los mensajes y desactivar el spinner después de un retraso
+    setTimeout(() => {
+      this.loadMessages().then(() => {
+        this.isLoading = false; // Ocultar el spinner después de cargar los mensajes
+      });
+    }, 1000);
   }
 
   // Manejar la eliminación de un mensaje
