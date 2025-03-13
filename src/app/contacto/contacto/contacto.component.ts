@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { CommonModule, formatCurrency } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { MessageComponent } from '../../modal/message/message.component';
 import { MessageService } from '../../services/message.service'; // Asegúrate de importar el servicio correcto

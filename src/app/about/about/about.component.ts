@@ -1,17 +1,18 @@
 import { Component } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
-import { routes } from '../../app.routes';
 import { RouterModule } from '@angular/router';
-import { UnderConstructionComponent } from '../../under-construction/under-construction.component';
+import { InstagramComponent } from "../instagram/instagram.component";
+import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'app-about',
   standalone: true,  
-  imports: [TranslateModule, RouterModule, UnderConstructionComponent],
+  imports: [CommonModule, TranslateModule, RouterModule, InstagramComponent],
   templateUrl: './about.component.html',
   styleUrl: './about.component.css'
 })
 export class AboutComponent {
+[x: string]: string;
 
 }
