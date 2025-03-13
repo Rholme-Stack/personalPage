@@ -14,6 +14,7 @@ export class AuthService {
       console.log('User:', userCredential.user);
     } catch (error: any) {
       console.error('Error:', error);
+      throw error;
     }
   }
 
