@@ -1,19 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { AuthService } from '../../services/auth.service';
+import { CommonModule } from '@angular/common';
+
+
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [TranslateModule, RouterModule],
+  imports: [TranslateModule, RouterModule, CommonModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
 
   currentLanguage = '🇬🇧 English';
+  user$;
 
-  constructor(private translate: TranslateService) {
+  constructor(private translate: TranslateService, @Inject(AuthService) private authService: AuthService) {
+    this.user$ = this.authService.getUser();
     const savedLang = localStorage.getItem('lang') || 'en';
     this.translate.setDefaultLang(savedLang);
     this.translate.use(savedLang);

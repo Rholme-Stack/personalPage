@@ -5,9 +5,11 @@ import { ContactoComponent } from './contacto/contacto/contacto.component';
 import { GamesComponent } from './games/games/games.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ContactoListComponent } from './contacto/contacto-list/contacto-list.component';
+import { LoginComponent } from './login/login.component';
 
 export const routes: Routes = [
     {path: '', redirectTo: 'home', pathMatch: 'full'},
+    {path: 'login', component: LoginComponent},
     {path: 'home', component: HomePageComponent},
     {path: 'about', component: AboutComponent},
     {path: 'contact', component: ContactoComponent},

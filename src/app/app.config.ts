@@ -1,6 +1,6 @@
 import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
-import { HttpClientModule, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';
@@ -8,7 +8,11 @@ import { HttpClient } from '@angular/common/http';
 // Firebase
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { provideAuth, getAuth } from '@angular/fire/auth';  // <-- IMPORTANTE
 import { firebaseConfig } from './firebase.config';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+
+
 import { routes } from './app.routes';
 
 // Función para cargar traducciones desde `public/i18n/`
@@ -30,8 +34,10 @@ export const appConfig: ApplicationConfig = {
         },
       })
     ),
-    // Agregar Firebase aquí
+    // Firebase Configuración
+    importProvidersFrom(AngularFireAuthModule),
     provideFirebaseApp(() => initializeApp(firebaseConfig)),
     provideFirestore(() => getFirestore()),
+    provideAuth(() => getAuth()),  // <-- Agregar esto para la autenticación
   ],
 };

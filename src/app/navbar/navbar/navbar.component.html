@@ -1,9 +1,13 @@
 <!-- Sidebar -->
 <div id="mySidebar" class="sidebar">
   <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">×</a>
+  <a [routerLink]="'/login'" (click)="closeNav()">Login</a>
   <a [routerLink]="'/home'" (click)="closeNav()">{{ 'HOME' | translate }}</a>
   <a [routerLink]="'/about'" (click)="closeNav()">{{ 'ABOUT' | translate }}</a>
   <a [routerLink]="'/contact'" (click)="closeNav()">{{ 'CONTACT' | translate }}</a>
+  <a *ngIf="(user$ | async) as user" [routerLink]="'/contact-list'" (click)="closeNav()">
+    Contact List ({{ user.email }})
+  </a>
   <a [routerLink]="'/games'" (click)="closeNav()">TimTim Games</a>
 </div>
 
