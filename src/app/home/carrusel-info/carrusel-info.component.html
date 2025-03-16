@@ -1,0 +1,11 @@
+<div class="carousel">
+    <div class="carousel-container">
+      <img 
+        *ngFor="let item of items" 
+        [src]="item.image" 
+        alt="carrusel info" 
+        class="carousel-img"
+        (click)="openLink(item.link)">
+    </div>
+  </div>
+  

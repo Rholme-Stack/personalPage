@@ -1,0 +1,8 @@
+.footer{
+    background-color: aliceblue;
+    color: darkslategray;
+    text-align: left; /* Alinea el texto a la izquierda */
+    padding: 5px 20px; /* Reduce el espacio interno (altura más fina) */
+    font-size: 14px; /* Tamaño de letra más pequeño */
+    width: 100%; /* Ocupar todo el ancho */
+}

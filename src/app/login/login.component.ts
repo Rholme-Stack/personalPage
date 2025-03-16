@@ -51,7 +51,7 @@ export class LoginComponent {
 
   private getErrorMessage(errorCode: string): string {
     const errorMessages: { [key: string]: string } = {
-      'auth/invalid-credential': 'El correo o la contraseña son incorrectos.', // 🔹 Nuevo código de error
+      'auth/invalid-credential': 'Email or password incorrect!', // 🔹 Nuevo código de error
       'auth/invalid-email': 'El correo electrónico no es válido.',
       'auth/user-disabled': 'El usuario ha sido deshabilitado.',
       'auth/user-not-found': 'No se encontró el usuario.',

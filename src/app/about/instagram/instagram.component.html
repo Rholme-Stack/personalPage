@@ -1,15 +1,43 @@
-<div class="instagram-feed">
-    <div *ngFor="let post of posts" class="post">
+<!-- ✅ GRID: Solo visible en pantallas grandes (PC) -->
+<div class="grid-container">
+  <div *ngFor="let post of posts" class="grid-item">
+    <a [href]="post.permalink" target="_blank">
+      <img *ngIf="post.media_type === 'IMAGE' || post.media_type === 'CAROUSEL_ALBUM'" 
+           [src]="post.media_url" [alt]="post.caption" alt="nstagram img">
+      <video *ngIf="post.media_type === 'VIDEO'" controls>
+        <source [src]="post.media_url" type="video/mp4">
+        Tu navegador no soporta videos.
+      </video>
+    </a>
+    <p>{{ post.caption }}</p>
+  </div>
+</div>
+
+<!-- ✅ CARRUSEL: Solo visible en móviles -->
+<div id="instagramCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div *ngFor="let post of posts; let i = index" class="carousel-item" [ngClass]="{'active': i === 0}">
       <a [href]="post.permalink" target="_blank">
         <img *ngIf="post.media_type === 'IMAGE' || post.media_type === 'CAROUSEL_ALBUM'" 
-             [src]="post.media_url" 
-             [alt]="post.caption" alt="instagram-feed">
-        <video *ngIf="post.media_type === 'VIDEO'" controls>
+             [src]="post.media_url" class="d-block w-100" [alt]="post.caption" alt="nstagram img">
+        <video *ngIf="post.media_type === 'VIDEO'" class="d-block w-100" controls>
           <source [src]="post.media_url" type="video/mp4">
           Tu navegador no soporta videos.
         </video>
       </a>
-      <p>{{ post.caption }}</p>
+      <div class="carousel-caption d-none d-md-block">
+        <p>{{ post.caption }}</p>
+      </div>
     </div>
   </div>
-  
+
+  <!-- Controles del carrusel -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#instagramCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Anterior</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#instagramCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Siguiente</span>
+  </button>
+</div>

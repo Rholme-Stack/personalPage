@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { UnderConstructionComponent } from "../../under-construction/under-construction.component";
+import { CarruselInfoComponent } from "../carrusel-info/carrusel-info.component";
+
 
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [TranslateModule, UnderConstructionComponent],
+  imports: [CarruselInfoComponent],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css'
 })

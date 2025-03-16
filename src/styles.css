@@ -21,3 +21,21 @@ h1{
     color: aliceblue;
 }
 
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ocupar toda la altura de la pantalla */
+  }
+  
+  .content-wrap {
+    flex: 1; /* Hace que el contenido ocupe todo el espacio disponible */
+  }
+  
+  .footer {
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    width: 100%;
+  }
+

@@ -3,3 +3,7 @@
     
 }
 
+.btn{
+    background-color: var(--color-primary)  !important;
+}
+

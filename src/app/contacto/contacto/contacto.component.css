@@ -30,6 +30,43 @@
 full-height{
     height: 100vh;
 }
+.image {
+    border: solid 2px var(--color-primary);
+    color: var(--color-white);
+    background-color: black; /* Fondo oscuro para resaltar el neón */
+    padding: 10px;
+    text-align: center;
+
+    /* Efecto de neón más reducido en el texto */
+    text-shadow: 0 0 0px var(--color-primary), 
+                 0 0 0px var(--color-secondary);
+
+    /* Efecto de neón en el box-shadow */
+    box-shadow: 0 0 5px var(--color-base), 
+                0 0 15px var(--color-base-transparent);
+    
+    transition: box-shadow 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+}
+
+/* Efecto al pasar el mouse */
+.image:hover {
+    text-shadow: 0 0 0px var(--color-primary), 
+                 0 0 0px var(--color-secondary);
+                 
+    box-shadow: 0 0 10px var(--color-base), 
+                0 0 20px var(--color-accent);
+}
+
+
+@keyframes glow {
+    0% { box-shadow: 0 0 10px var(--color-base); }
+    50% { box-shadow: 0 0 20px var(--color-accent); }
+    100% { box-shadow: 0 0 10px var(--color-base); }
+}
+
+.image {
+    animation: glow 1.5s infinite alternate;
+}
 
 .image{
     height: 300px;
