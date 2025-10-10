@@ -42,4 +42,4 @@ testem.log
 Thumbs.db
 
 
-src/app/firebase.config.ts
+src/app/token.ts

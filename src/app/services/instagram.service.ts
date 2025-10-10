@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { token } from '../firebase.config';
+import { token } from '../token';
 
 @Injectable({
   providedIn: 'root'
 })
 export class InstagramService {
   private apiUrl = 'https://graph.instagram.com/me/media';
-  private accessToken = token; // Reemplázalo con tu token
+  private accessToken = token; 
 
   constructor(private http: HttpClient) {}
 

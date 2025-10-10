@@ -32,4 +32,25 @@
   #instagramCarousel {
     display: block; /* Muestra el carrusel en móviles */
   }
+
+   .carousel-caption {
+    position: static; /* ✅ Saca el texto de encima de la imagen */
+    padding-top: 10px;
+    background: none; /* Elimina fondo oscuro si lo había */
+    text-align: center;
+  }
+
+  .carousel-caption p {
+    color: #fff !important;
+    font-size: 14px;
+    margin: 0;
+    overflow-wrap: break-word;
+  }
+
+  .shade {
+  background-color: rgba(61, 60, 60, 0.4); /* ✅ negro con 87% de opacidad */
+  border-radius: 50%; /* ✅ botón redondo */
+  color: white; /* opcional, mejora contraste */
+  border: none; /* opcional, elimina borde */
+}
 }

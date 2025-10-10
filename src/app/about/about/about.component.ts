@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
-import { InstagramComponent } from "../instagram/instagram.component";
 import { CommonModule } from '@angular/common';
+import { InstagramService } from '../../services/instagram.service';
+import { InstagramComponent } from "../instagram/instagram.component";
 
 
 @Component({
@@ -13,6 +14,12 @@ import { CommonModule } from '@angular/common';
   styleUrl: './about.component.css'
 })
 export class AboutComponent {
-[x: string]: string;
+
+ 
+ 
+
+  constructor(private instagramService: InstagramService) {}
+
+  
 
 }

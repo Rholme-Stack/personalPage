@@ -16,7 +16,7 @@ export class InstagramComponent implements OnInit {
 
   ngOnInit(): void {
     this.instagramService.getInstagramPosts().subscribe((data) => {
-      this.posts = data.data; // Accedemos a la lista de publicaciones
+      this.posts = data.data; 
     });
   }
 

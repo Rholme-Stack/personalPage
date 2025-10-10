@@ -1,8 +1,12 @@
-<div class="container-fluid position-relative">
-  <img src="imagenes/home.webp" alt="Home Page" class="img-fluid mx-auto d-block w-75 diagonal-image" />
-</div>
-<div>
-  <app-carrusel-info></app-carrusel-info>
+<div class="animated-background-container">
+  <img *ngFor="let img of animatedImages" 
+       [src]="img.src" 
+       alt="Animated Background Image" 
+       class="floating-image"
+       [style.top.vh]="img.top" 
+       [style.left.vw]="img.left" 
+       [style.--rotation.deg]="img.rotation" 
+       [style.animation-duration.s]="img.duration">
 </div>
 
 

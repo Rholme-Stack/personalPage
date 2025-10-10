@@ -1,41 +1,42 @@
-.carousel-container {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-    background-color: black;
-  }
-  
-  .carousel-track {
-    display: grid;
-    grid-template-columns: repeat(20, 1fr); /* 20 columnas para un desplazamiento largo */
-    grid-template-rows: repeat(2, 150px); /* SOLO 2 FILAS */
-    gap: 5px;
-    animation: scrollAnimation 10s linear infinite;
-  }
-  
-  .grid-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: black;
-    padding: 10px;
-  }
-  
-  .grid-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  /* Animación del carrusel */
-  @keyframes scrollAnimation {
-    from {
-      transform: translateX(0%);
+.animated-background-container {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden; 
+    z-index: -1; 
+    pointer-events: none; 
+}
+
+/* 2. Estilo base de la imagen */
+.floating-image {
+    position: absolute; 
+    width: 18vw; /* Ajusta el tamaño de los iconos de Instagram */
+    height: auto;
+    opacity: 0.35; /* Baja la opacidad para que no opaque el contenido */
+    
+    animation-name: slide-left-loop;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+/* 3. Keyframes: El deslizamiento de derecha a izquierda */
+@keyframes slide-left-loop {
+    0% {
+        /* Inicia el movimiento usando la rotación aleatoria del TS */
+        transform: translateX(0) rotate(var(--rotation)); 
     }
-    to {
-      transform: translateX(-50%);
+    
+    100% {
+        /* Desliza la imagen 250vw a la izquierda (fuera de la vista) */
+        transform: translateX(-200vw) rotate(var(--rotation)); 
     }
-  }
-  
+}
+
+@media (max-width: 768px) {
+    
+    .floating-image {
+        width: 35vw; /*Ancho específico para móviles (más grande) */
+    }
+}

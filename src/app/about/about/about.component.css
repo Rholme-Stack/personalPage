@@ -8,14 +8,9 @@ p {
 .parraf {
     border: solid 2px var(--color-primary);
     color: var(--color-white);
-    background-color: black; /* Fondo oscuro para resaltar el neón */
+    background-color: black;
     padding: 10px;
     text-align: center;
     box-shadow: 4px 4px 0 0px var(--color-base) 
-}
+} 
 
-
-
-
-
-  
