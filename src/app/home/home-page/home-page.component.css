@@ -34,9 +34,92 @@
     }
 }
 
+
+/* --- 1. VARIABLES Y ESTILOS BASE --- */
+
+:root {
+    /* Colores */
+    --mustard: #FFC300; /* Amarillo Mostaza Base */
+    --neon: #FFF600;    /* Amarillo Neón para el Hover */
+    --background: #111111; /* Fondo oscuro para que resalte */
+}
+
+body {
+    background-color: var(--background);
+    font-family: 'Oswald', Impact, sans-serif; /* Usa una fuente GORDA */
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.cyber-nav {
+    display: flex;
+    flex-direction: column; /* Disposición VERTICAL */
+    align-content: center;
+    gap: 15px; /* Espacio entre los bloques */
+    /*padding-left: 8rem;*/
+  
+}
+
+/* --- 2. ESTILO DEL BLOQUE NORMAL --- */
+
+.nav-block {
+    text-decoration: none; /* Quitar el subrayado por defecto */
+    color: #FFC300;
+    font-size: 3.5rem; /* Letras GORDAS */
+    font-weight: 900;
+    line-height: 1; /* Para controlar el espacio vertical */
+    padding: 8px 15px; /* Relleno del bloque */
+    border: 3px solid var(--mustard); /* Contorno para el efecto de bloque */
+
+    /* Transiciones suaves para el hover */
+    transition: all 0.3s ease-out;
+
+    /* SOMBRA/BRILLO sutil de base */
+   
+}
+
+/* --- 3. EFECTO DESORDENADO INTENCIONAL --- */
+
+/* Aplicamos transformaciones sutiles a cada bloque para ese efecto desordenado */
+
+.block-about {
+    transform: rotate(-1.5deg) translateX(-5px); /* Pequeña rotación e izquierda */
+    margin-left: 10px; /* Desplazamiento */
+}
+
+.block-contact {
+    transform: rotate(0.5deg); /* Ligera inclinación */
+    font-size: 3.8rem; /* Ligeramente más grande */
+    z-index: 10; /* Para superponer */
+}
+
+.block-games {
+    transform: rotate(2deg) translateX(10px); /* Más rotación y a la derecha */
+    margin-top: -10px; /* Superposición ligera con el de arriba */
+}
+
+
+/* --- 4. EFECTO HOVER IMPACTANTE (El "Destacado") --- */
+
+.nav-block:hover {
+    color: var(--background); /* El texto se oscurece (o se pone negro) */
+    background-color: #FFF600; /* El fondo se convierte en NEÓN */
+    border-color:#FFF600; /* El contorno también se convierte en neón */
+    
+    /* Efecto "saltar" y el brillo intenso */
+    transform: scale(1.05) rotate(0deg); /* Vuelve a estar recto y se agranda un poco */
+    box-shadow: 
+        0 0 10px #FFF600,
+        0 0 25px #FFF600; /* Brillo doble y fuerte */
+}
+
 @media (max-width: 768px) {
     
     .floating-image {
         width: 35vw; /*Ancho específico para móviles (más grande) */
     }
 }
+
