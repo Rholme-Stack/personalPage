@@ -4,6 +4,7 @@ import { InstagramService } from '../../services/instagram.service';
 import { InstagramPost } from '../../interfaces/instagram-post.interface';
 import { AnimatedImage } from '../../interfaces/animated-image.interface';
 import { CommonModule } from '@angular/common';
+import { catchError, of } from 'rxjs';
 
 
 
@@ -33,21 +34,19 @@ export class HomePageComponent {
     
   
     ngOnInit(): void {
-      this.instagramService.getInstagramPosts().subscribe(
-        (data: InstagramPost[]) => {
-          // Asigna el array real de posts (ajusta si tu servicio devuelve un objeto, ej: data.data)
-          this.posts = (data as any).data || data; 
-          
-          // 1. Calcular todas las propiedades (incluyendo la velocidad aleatoria)
-          this.allCalculatedImages = this.calculateAllImageProperties(); 
-          
-          // 2. Iniciar la secuencia de liberación lenta
-          this.startAnimationSequence(); 
-        },
-        (error) => {
-          console.error('Error al cargar los posts de Instagram:', error);
-        }
-      );
+      this.instagramService.getInstagramPosts().pipe(
+        catchError((error) => {
+          console.warn('Token de Instagram caducado o error de API:', error);
+          return of({ data: [] }); // devuelve array vacío, la app sigue funcionando
+        })
+      ).subscribe((data: any) => {
+        this.posts = data.data || data;
+
+        if (this.posts.length === 0) return; // si no hay posts, no hace nada más
+
+        this.allCalculatedImages = this.calculateAllImageProperties();
+        this.startAnimationSequence();
+      });
     }
   
     // 1. Método que calcula todas las propiedades aleatorias de las imágenes.
